@@ -1,6 +1,0 @@
-{
-    "request": "subscribe",
-    "port": 8899,
-    "name": "Random",
-    "matricules": ["195053"]
- } 
