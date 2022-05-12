@@ -1,5 +1,6 @@
 import socket
 import json
+import IA
 
 #On ouvre le fichier"IA.json" contenant les DONNEES DU JOUEUR.(NB: Communication avec le serveur en JSON)
 with open("IA.json") as file:
@@ -27,6 +28,12 @@ def serveur():
             #Réponse du client qu'on envoie en JSON (dico-->JSON: json.dumps)
             reponse = {"response": "pong"}
             serveur.send(json.dumps(reponse).encode('utf8'))
+        
+        if requete_serveur["request"]== "play":                    
+            reponse = IA.ia1(requete_serveur["state"])
+            serveur.send(json.dumps(reponse).encode('utf8')) 
+
+        serveur.close()    
                                            
     
 
