@@ -1,9 +1,9 @@
 import socket
 import json
-import IA
+import IA_aleatoire
 
 #On ouvre le fichier"IA.json" contenant les DONNEES DU JOUEUR.(NB: Communication avec le serveur en JSON)
-with open("IA.json") as file:
+with open("IA_aleatoire.json") as file:
         joueur= file.read()
 
 
@@ -17,7 +17,7 @@ def serveur():
     while True:
         serveur, addresse = s.accept()
         #Réponse du serveur qu'on reçoie en JSON (JSON-->dico: json.loads)
-        requete_serveur= json.loads(serveur.recv(2048).decode('utf8'))
+        requete_serveur= json.loads(serveur.recv(2048).decode())
 
         #2 types de requete_serveur:
         #requete_serveur={"request": "ping"}
@@ -27,14 +27,13 @@ def serveur():
         if requete_serveur["request"] == "ping": 
             #Réponse du client qu'on envoie en JSON (dico-->JSON: json.dumps)
             reponse = {"response": "pong"}
-            serveur.send(json.dumps(reponse).encode('utf8'))
+            serveur.send(json.dumps(reponse).encode())
         
         if requete_serveur["request"]== "play":                    
-            reponse = IA.ia1(requete_serveur["state"])
-            serveur.send(json.dumps(reponse).encode('utf8')) 
+            reponse = IA_aleatoire.ia1(requete_serveur["state"])
+            serveur.send(json.dumps(reponse).encode()) 
 
-        serveur.close()    
-                                           
+        serveur.close()                                        
     
 
 #CLIENT
@@ -44,12 +43,13 @@ r= socket.socket()
 adresse_serveur = ("localhost",3000) 
 try:
     r.connect((adresse_serveur))
+    r.send(joueur.encode())
 except OSError:
     print ("Serveur introuvable , connexion impossible .")
-r.send(joueur.encode('utf8'))
+
 
 #Réponse du serveur qu'on reçoit en JSON (JSON-->dico: json.loads)
-reponse_serveur_json= r.recv(2048).decode('utf8')
+reponse_serveur_json= r.recv(2048).decode()
 reponse= json.loads(reponse_serveur_json)
 #2 types de reponse:
 #reponse={"response": "ok"}
