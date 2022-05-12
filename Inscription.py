@@ -1,9 +1,9 @@
 import socket
 import json
-import IA_aleatoire
+import IA
 
 #On ouvre le fichier"IA.json" contenant les DONNEES DU JOUEUR.(NB: Communication avec le serveur en JSON)
-with open("IA_aleatoire.json") as file:
+with open("IA.json") as file:
         joueur= file.read()
 
 
@@ -30,7 +30,7 @@ def serveur():
             serveur.send(json.dumps(reponse).encode())
         
         if requete_serveur["request"]== "play":                    
-            reponse = IA_aleatoire.ia1(requete_serveur["state"])
+            reponse = IA.ia1(requete_serveur["state"])
             serveur.send(json.dumps(reponse).encode()) 
 
         serveur.close()                                        
