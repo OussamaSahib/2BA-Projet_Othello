@@ -158,9 +158,6 @@ def ia1(state):
     if len(mvt_possible)!=0:
         #Dans le plateau du jeu, l'IA joue en priorité: 1)Coins, 2)Cases aux murs, 3)Carrée central, 
         #4)Avant dernier carrée sauf ses coins, 5)Coins de l'avant dernier carrée
-        #NB:Pour les cases du carrée central, l'IA essaiera si possible d'avoir le plus de pions
-        score= 0 
-        move=[]
                                 
         coins= [0,7,56,63]
         mur= [8,16,24,32,40,48,57,58,59,60,61,62,55,47,39,31,23,15,6,5,4,3,2,1]
