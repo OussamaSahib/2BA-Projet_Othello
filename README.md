@@ -7,13 +7,13 @@ Tous les matchs de cette compétition se déroule avec les règles du célèbre 
 
 ## **Lancement du jeu**
 Pour le lancement du jeu Othello, on utilise **l'interface graphique de Quentin Lurkin**: [Gestionnaire de partie-Othello](https://github.com/qlurkin/PI2CChampionshipRunner.git).
-Puis, dans le terminal:
+Dans le terminal, on met:
 ```
 python -m pip install -r requirements.txt
 python -m pip install pillow
 python server.py othello
 ```
-Ensuite, pour le lancement de l'IA, dans le  terminal:
+Pour le lancement de l'IA, on utilise **ce dépot Git**. Dans le  terminal, on met:
 ```
 python Inscription.py
 ```
