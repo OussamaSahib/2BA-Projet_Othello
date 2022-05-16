@@ -18,6 +18,16 @@ Ensuite, pour le lancement de l'IA, dans le  terminal:
 python Inscription.py
 ```
 
+On peut noter que s'il on veut changer le port du PC sur lequel on lance l'IA, il faut aller dans le fichier "IA.json" et changer le port:
+```json
+{
+    "request": "subscribe",
+    "port": numéro_de_port (au-dessus_de_1000),
+    "name": "Ouss-Ouss",
+    "matricules": ["195052"]
+ } 
+```
+
 ## **Plateau du jeu**
 Reversi est un jeu joué sur un plateau de 64  cases (8x8) entre 2 joueurs: "NOIR" et "BLANC"; où le joueur Noir se déplace en premier. Le plateau de départ est:
 
