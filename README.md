@@ -18,11 +18,11 @@ Ensuite, pour le lancement de l'IA, dans le  terminal:
 python Inscription.py
 ```
 
-On peut noter que s'il on veut changer le port du PC sur lequel on lance l'IA, il faut aller dans le fichier "IA.json" et changer le port:
+On peut noter que s'il on veut changer le numéro de port du PC sur lequel on lance l'IA, il faut aller dans le fichier "IA.json" et changer le port   *(NB: Il faut mettre un numéro au-dessus de 1000)*:
 ```json
 {
     "request": "subscribe",
-    "port": numéro_de_port (au-dessus_de_1000),
+    "port": numéro_de_port,
     "name": "Ouss-Ouss",
     "matricules": ["195052"]
  } 
